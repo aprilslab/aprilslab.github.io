@@ -1,0 +1,17 @@
+# some information about you
+name: "Yeong Ju Kim"
+nickname: "April"
+# greeting message before your name. it will default to "Hi! I am" if not provided
+greeting: "Hi, I am"
+image: "images/author/yj.jpg"
+# give your some contact information. they will be used in the footer
+contactInfo:
+  email: "april.kim412@gmail.com"
+  # phone: "+0122223333"
+  # github: johndoe
+  # linkedin: johndoe
+
+# some summary about what you do
+summary:
+  - I am a Developer
+  - I love to work with some fun projects
