@@ -3,13 +3,14 @@
 
 {{/*  if hero image is specified in the page front-matter, then use that  */}}
 {{ if .Params.hero }}
-  {{ $heroImage = .Page.Resources.GetMatch .Params.hero }}
+  {{/*  {{ $heroImage = .Page.Resources.GetMatch .Params.hero }}  */}}
+  {{ $heroImage = resources.Get .Params.hero }}
 {{ end }}
 {{ .Scratch.Set "heroScratch" $heroImage }}
 
 {{/* if hero image is not provided, then use the default hero image */}}
 {{ if not $heroImage }}
-  {{ $heroImage := resources.Get "images/default-hero.jpg"}}
+  {{ $heroImage := resources.Get "images/default-hero4.jpg"}}
   {{ .Scratch.Set "heroScratch" $heroImage }}
 {{ end }}
 
