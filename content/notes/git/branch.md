@@ -40,3 +40,16 @@ $ git config --global init.defaultBranch {branch}
 ```
 {{< /note >}}
 
+<!-- Delete Branch -->
+{{< note title="Delete Branch" >}}
+로컬 브렌치 삭제
+```bash
+$ git branch -D {branch}
+```
+---
+지운 로컬 브렌치 되살리기
+```bash
+$ git reflog --no-abbrev
+$ git checkout -b {branch_name} {브렌치 지우기 전 commit}
+```
+{{< /note >}}
