@@ -27,3 +27,16 @@ $ git checkout -b {new branch}
 
 {{< /note >}}
 
+<!-- Update Branch -->
+{{< note title="Update Branch" >}}
+로컬 브렌치 이름 변경
+```bash
+$ git branch -m {변경전 이름} {바꿀 이름}
+```
+---
+Default branch 변경
+```bash
+$ git config --global init.defaultBranch {branch}
+```
+{{< /note >}}
+
