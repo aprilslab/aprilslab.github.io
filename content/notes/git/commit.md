@@ -41,3 +41,21 @@ $ git checkout {commit}
 $ git checkout -
 ```
 {{< /note >}}
+
+
+<!-- Update Commit -->
+{{< note title="Update Commit" >}}
+
+바로 직전 commit에 변경사항 추가하기
+```bash
+# 변경사항 모두 저장
+$ git add .
+# git commit
+$ git commit --amend
+```
+---
+과거의 특정 commit 수정 (merge상태 유지)
+```bash
+$ git rebase -i --rebase-merges {commit}
+```
+{{< /note >}}
