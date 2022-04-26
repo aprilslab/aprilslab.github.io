@@ -15,6 +15,16 @@ menu:
 ```bash
 $ git remote -v
 ```
+---
+git remote 변경 명령어
+```bash
+$ git remote set-url origin {https://github.com/johndoe/example.git}
+```
+---
+git remote 동기화 명령어
+```bash
+$ git remote update origin --prune
+```
 {{< /note >}}
 
 <!-- Remote Branch -->
