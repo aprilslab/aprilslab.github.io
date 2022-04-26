@@ -33,4 +33,9 @@ Remote branch 리스트 확인하기
 ```bash
 $ git branch -r
 ```
+---
+Remote branch가져오기
+```bash
+$ git checkout -t origin/{branch_name}
+```
 {{< /note >}}
