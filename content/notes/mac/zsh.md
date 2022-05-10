@@ -22,4 +22,10 @@ git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 echo "\nfpath+=$HOME/.zsh/pure\nautoload -U promptinit; promptinit\nprompt pure" >> "$HOME/.zshrc"
 exec $SHELL
 ```
+---
+Syntax Highlight
+```bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh/zsh-syntax-highlighting"
+echo "\nsource $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "$HOME/.zshrc"
+```
 {{< /note >}}
