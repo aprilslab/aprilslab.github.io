@@ -3,7 +3,7 @@ title: "Appstore"
 menu:
   sidebar:
     name: Appstore
-    identifier: logs_appstore
+    identifier: logs-appstore
     parent: logs
     weight: 10
 ---
