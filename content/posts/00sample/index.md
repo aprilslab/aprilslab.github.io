@@ -5,7 +5,7 @@ menu:
   sidebar: 
     name: Sample Post
     identifier: samples
-    weight: 10
+    weight: 10000
 author:
   name: April
   image: /images/author/april.jpg

@@ -1,9 +1,10 @@
 ---
 title: "Mac"
+weight: 200
 menu:
-  sidebar:
+  notes:
     name: Mac
-    identifier: notes-git
+    identifier: notes-mac
     weight: 200
 ---
 
