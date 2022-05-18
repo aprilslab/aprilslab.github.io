@@ -1,12 +1,12 @@
 ---
-title: "NavigationLink 이동하자마자 뒤로 가는 현상 해결 방법"
+title: "이동하자마자 뒤로 가는 현상 (NavigationLink)"
 date: 2022-05-17T11:00:45+09:00
 draft: false
 mermaid: true
 math: true
 menu:
   sidebar:
-    name: "NavigationLink 이동하자마자 뒤로 가는 현상 해결 방법"
+    name: "이동하자마자 뒤로 가는 현상 (NavigationLink)"
     identifier: logs-swiftui-navi
     parent: logs-swiftui
     weight: 10
