@@ -209,6 +209,34 @@ This is sample alert with `type="primary"`.
 This is sample alert with `type="secondary"`.
 {{< /alert >}}
 
+## Image
+
+#### A sample image without any attribute.
+
+{{< img src="hero.jpg" title="A boat at the sea" >}}
+
+{{< vs 3 >}}
+
+#### A sample image with `height` and `width` attributes.
+
+{{< img src="hero.jpg" height="400" width="600" title="A boat at the sea" >}}
+
+{{< vs 3 >}}
+
+#### A center aligned image with `height` and `width` attributes.
+
+{{< img src="hero.jpg" height="400" width="600" align="center" title="A boat at the sea" >}}
+
+{{< vs 3 >}}
+
+#### A image with `float` attribute.
+
+{{< img src="hero.jpg" height="200" width="500" float="right" title="A boat at the sea" >}}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras egestas lectus sed leo ultricies ultricies. Praesent tellus risus, eleifend vel efficitur ac, venenatis sit amet sem. Ut ut egestas erat. Fusce ut leo turpis. Morbi consectetur sed lacus vitae vehicula. Cras gravida turpis id eleifend volutpat. Suspendisse nec ipsum eu erat finibus dictum. Morbi volutpat nulla purus, vel maximus ex molestie id. Nullam posuere est urna, at fringilla eros venenatis quis.
+
+Fusce vulputate dolor augue, ut porta sapien fringilla nec. Vivamus commodo erat felis, a sodales lectus finibus nec. In a pulvinar orci. Maecenas suscipit eget lorem non pretium. Nulla aliquam a augue nec blandit. Curabitur ac urna iaculis, ornare ligula nec, placerat nulla. Maecenas aliquam nisi vitae tempus vulputate.
+
 ## Split
 
 This theme support splitting the page into as many columns as you wish.
