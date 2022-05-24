@@ -169,7 +169,7 @@ params:
 
     # Show/hide disclaimer notice in the footer. Default is "false".
     disclaimer:
-      enable: true
+      enable: false
 
   privacy:
     disqus:
