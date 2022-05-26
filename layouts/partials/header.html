@@ -29,3 +29,8 @@
 
   <link rel="icon" type="image/png" href="{{ $favicon }}" />
 {{end}}
+
+<!--================= clipboard =========================-->
+{{ if (findRE "<pre" .Content 1) }}
+    <link rel="stylesheet" href="/css/layouts/clipboard.css">
+{{ end }}

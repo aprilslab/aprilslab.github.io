@@ -5,3 +5,7 @@
 <script type="text/javascript" src="{{ "/js/navbar.js" | relURL }}"></script>
 <script type="text/javascript" src="{{ "/js/plyr.js" | relURL }}"></script>
 <script type="text/javascript" src="{{ "/js/main.js" | relURL }}"></script>
+
+{{ if (findRE "<pre" .Content 1) }}
+    <script type="text/javascript" src="/js/clipboard.js"></script>
+{{ end }}
