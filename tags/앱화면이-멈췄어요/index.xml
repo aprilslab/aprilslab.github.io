@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>앱화면이 멈췄어요 on April's DevLog</title><link>https://aprilslab.github.io/tags/%EC%95%B1%ED%99%94%EB%A9%B4%EC%9D%B4-%EB%A9%88%EC%B7%84%EC%96%B4%EC%9A%94/</link><description>Recent content in 앱화면이 멈췄어요 on April's DevLog</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Wed, 18 May 2022 11:12:00 +0900</lastBuildDate><atom:link href="https://aprilslab.github.io/tags/%EC%95%B1%ED%99%94%EB%A9%B4%EC%9D%B4-%EB%A9%88%EC%B7%84%EC%96%B4%EC%9A%94/index.xml" rel="self" type="application/rss+xml"/><item><title>화면이 멈추는 현상 (TabView)</title><link>https://aprilslab.github.io/posts/logs/swiftui/tabview/</link><pubDate>Wed, 18 May 2022 11:12:00 +0900</pubDate><guid>https://aprilslab.github.io/posts/logs/swiftui/tabview/</guid><description>TabView란?  공식문서: 링크
+ Apple 정의
+A view that switches between multiple child views using interactive user interface elements.
+여러개의 자식뷰를 가진 뷰 스위쳐라고 적혀있다. 안드로이드의 ViewPager와 비슷하다고 보면 될 것 같다. 애플에서 공식으로 제공하는 뷰중에 하나지만 StackOverflow 등을 보면 버그가 많아서 많이 쓰이지는 않는 것같다.
+이번에 겪은 증상을 기록용으로 남겨본다.
+  버그증상 iOS 14.2, 14.3 등 특정 버전에서 화면이 멈추면서 아예 동작을 하지 않았다.</description></item></channel></rss>
