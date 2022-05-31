@@ -46,8 +46,8 @@
 .copy-code-button {
   position: absolute;
   z-index: 2;
-  right: 0;
-  top: 0;
+  right: 5px;
+  top: 0px;
   font-size: 13px;
   font-weight: 700;
   line-height: 14px;
