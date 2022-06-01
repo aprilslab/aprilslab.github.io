@@ -25,7 +25,8 @@ async function copyCodeToClipboard(button, highlightDiv) {
 }
 
 function copyCodeBlockExecCommand(codeToCopy, highlightDiv) {
-  const textArea = document.createElement("textArea");
+  // const textArea = document.createElement("textArea");
+  const textArea = document.createElement("input");
   textArea.contentEditable = 'true'
   textArea.readOnly = 'false'
   textArea.className = "copyable-text-area";
