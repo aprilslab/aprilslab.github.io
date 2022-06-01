@@ -30,7 +30,7 @@ function copyCodeBlockExecCommand(codeToCopy, highlightDiv) {
   textArea.contentEditable = 'true'
   textArea.readOnly = 'false'
   textArea.className = "copyable-text-area";
-  textArea.value = codeToCopy.replace("<br>", "\\n");;
+  textArea.value = codeToCopy.replace(/(\r\n|\n|\r)/gm, "");
   highlightDiv.insertBefore(textArea, highlightDiv.firstChild);
   const range = document.createRange()
   range.selectNodeContents(textArea)
