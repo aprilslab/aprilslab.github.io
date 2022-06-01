@@ -8,7 +8,7 @@ function createCopyButton(highlightDiv) {
 }
 
 async function copyCodeToClipboard(button, highlightDiv) {
-  const codeToCopy = highlightDiv.querySelector(":last-child > pre > code").innerText;
+  const codeToCopy = highlightDiv.querySelector(":last-child > pre > code").innerText.replace("<br>", "\\n");
   try {
     result = await navigator.permissions.query({ name: "clipboard-write" });
     if (result.state == "granted" || result.state == "prompt") {
@@ -26,11 +26,10 @@ async function copyCodeToClipboard(button, highlightDiv) {
 
 function copyCodeBlockExecCommand(codeToCopy, highlightDiv) {
   const textArea = document.createElement("textArea");
-  // const textArea = document.createElement("input");
   textArea.contentEditable = 'true'
   textArea.readOnly = 'false'
   textArea.className = "copyable-text-area";
-  textArea.value = codeToCopy.replace(/(\r\n|\n|\r)/gm, "");
+  textArea.value = codeToCopy;
   highlightDiv.insertBefore(textArea, highlightDiv.firstChild);
   const range = document.createRange()
   range.selectNodeContents(textArea)
