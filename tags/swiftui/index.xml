@@ -1,13 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SwiftUI on April's DevLog</title><link>https://aprilslab.github.io/tags/swiftui/</link><description>Recent content in SwiftUI on April's DevLog</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Wed, 18 May 2022 11:12:00 +0900</lastBuildDate><atom:link href="https://aprilslab.github.io/tags/swiftui/index.xml" rel="self" type="application/rss+xml"/><item><title>화면이 멈추는 현상 (TabView)</title><link>https://aprilslab.github.io/posts/logs/swiftui/tabview/</link><pubDate>Wed, 18 May 2022 11:12:00 +0900</pubDate><guid>https://aprilslab.github.io/posts/logs/swiftui/tabview/</guid><description>TabView란?  공식문서: 링크
- Apple 정의
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SwiftUI on April's DevLog</title><link>https://aprilslab.github.io/tags/swiftui/</link><description>Recent content in SwiftUI on April's DevLog</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Wed, 18 May 2022 11:12:00 +0900</lastBuildDate><atom:link href="https://aprilslab.github.io/tags/swiftui/index.xml" rel="self" type="application/rss+xml"/><item><title>화면이 멈추는 현상 (TabView)</title><link>https://aprilslab.github.io/posts/logs/swiftui/tabview/</link><pubDate>Wed, 18 May 2022 11:12:00 +0900</pubDate><guid>https://aprilslab.github.io/posts/logs/swiftui/tabview/</guid><description>TabView란? 공식문서: 링크
+Apple 정의
 A view that switches between multiple child views using interactive user interface elements.
 여러개의 자식뷰를 가진 뷰 스위쳐라고 적혀있다. 안드로이드의 ViewPager와 비슷하다고 보면 될 것 같다. 애플에서 공식으로 제공하는 뷰중에 하나지만 StackOverflow 등을 보면 버그가 많아서 많이 쓰이지는 않는 것같다.
 이번에 겪은 증상을 기록용으로 남겨본다.
-  버그증상 iOS 14.2, 14.3 등 특정 버전에서 화면이 멈추면서 아예 동작을 하지 않았다.</description></item><item><title>이동하자마자 뒤로 가는 현상 (NavigationLink)</title><link>https://aprilslab.github.io/posts/logs/swiftui/navigationlink/</link><pubDate>Tue, 17 May 2022 11:00:45 +0900</pubDate><guid>https://aprilslab.github.io/posts/logs/swiftui/navigationlink/</guid><description>증상 NavigationLink로 페이지를 이동하자마자 뒤로 가는 현상
+버그증상 iOS 14.2, 14.3 등 특정 버전에서 화면이 멈추면서 아예 동작을 하지 않았다.
+SwiftUI를 쓰면서 느낀것인데 SwiftUI는 OS 버전을 많이 타는 것 같다.</description></item><item><title>이동하자마자 뒤로 가는 현상 (NavigationLink)</title><link>https://aprilslab.github.io/posts/logs/swiftui/navigationlink/</link><pubDate>Tue, 17 May 2022 11:00:45 +0900</pubDate><guid>https://aprilslab.github.io/posts/logs/swiftui/navigationlink/</guid><description>증상 NavigationLink로 페이지를 이동하자마자 뒤로 가는 현상
 SwiftUI로 개발을 하다보면 NavigationLink를 사용하는 경우가 많습니다.
 그런데 SwiftUI로 NavigationLink를 사용하다보면 NavigationLink로 페이지를 이동하자마자 뒤로 가는 현상이 발생하는 황당한 경우가 있습니다.
 그렇습니다. SwiftUI 버그입니다&amp;hellip;..
-  해결방법 빈 링크를 3개 넣어준다.
+해결방법 빈 링크를 3개 넣어준다.
 NavigationLink(destination: EmptyView()) {EmptyView()} NavigationLink(destination: EmptyView()) {EmptyView()} NavigationLink(destination: EmptyView()) {EmptyView()} 해결방법 자체는 간단합니다.
 SwiftUI 자체 버그가 발생하는 경우 꼼수로 해결하는 수 밖에 없습니다.
-EmptyView로 이동하는 빈 NavigationLink를 링크를 3개 더 넣어줍니다.</description></item></channel></rss>
+EmptyView로 이동하는 빈 NavigationLink를 링크를 3개 더 넣어줍니다.
+아래에 예시코드코드처럼 뷰 안에 빈 링크 NavigationLink(destination: EmptyView()) {EmptyView()}를 3개 넣어줍시다.</description></item></channel></rss>

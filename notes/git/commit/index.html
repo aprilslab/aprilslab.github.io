@@ -1,10 +1,10 @@
-<!doctype html><html><head><title>Git Commit</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600"><link rel=stylesheet href=/fontawesome/css/all.min.css><link rel=icon type=image/png href=/images/site/april_huc0aa484760819431a24aa16f6cd234dc_1500411_42x0_resize_box_3.png><meta property="og:title" content="Git Commit"><meta property="og:description" content="Git Commit 변경사항 저장 후 commit하기
-# 변경사항 모두 저장 $ git add . # git commit $ git commit -m &#34;commit message&#34;     Commit History commit history 조회 (삭제된 브렌치의 커밋도 조회 가능)
-$ git reflog   특정 commit 시점으로 이동하기
-$ git checkout {commit}   현재로 돌아오기
-$ git checkout -     Update Commit 바로 직전 commit에 변경사항 추가하기
-# 변경사항 모두 저장 $ git add ."><meta property="og:type" content="article"><meta property="og:url" content="https://aprilslab.github.io/notes/git/commit/"><meta property="article:section" content="notes"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/css/layouts/notes.css><link rel=stylesheet href=/css/navigators/sidebar.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-4SHVZ93FSM"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-4SHVZ93FSM",{anonymize_ip:!1})}</script></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<!doctype html><html><head><title>Git Commit</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600"><link rel=stylesheet href=/fontawesome/css/all.min.css><link rel=icon type=image/png href=/images/site/april_huc0aa484760819431a24aa16f6cd234dc_1500411_42x0_resize_box_3.png><link rel=stylesheet href=/css/layouts/clipboard.css><meta property="og:title" content="Git Commit"><meta property="og:description" content="Git Commit 변경사항 저장 후 commit하기
+# 변경사항 모두 저장 $ git add . # git commit $ git commit -m &#34;commit message&#34; Commit History commit history 조회 (삭제된 브렌치의 커밋도 조회 가능)
+$ git reflog 특정 commit 시점으로 이동하기
+$ git checkout {commit} 현재로 돌아오기
+$ git checkout - Update Commit 바로 직전 commit에 변경사항 추가하기
+# 변경사항 모두 저장 $ git add . # git commit $ git commit --amend 과거의 특정 commit 수정 (merge상태 유지)"><meta property="og:type" content="article"><meta property="og:url" content="https://aprilslab.github.io/notes/git/commit/"><meta property="article:section" content="notes"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/css/layouts/notes.css><link rel=stylesheet href=/css/navigators/sidebar.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-4SHVZ93FSM"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-4SHVZ93FSM',{anonymize_ip:!1})}</script></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
 <span class=navbar-toggler-icon></span></button>
 <a class=navbar-brand href=/><img src=/images/site/april_huc0aa484760819431a24aa16f6cd234dc_1500411_42x0_resize_box_3.png alt=Logo>
 April's DevLog</a>
@@ -30,6 +30,7 @@ Toha</a></div><div class="col-md-4 text-center">© 2020 Copyright.</div><div cla
 <script type=text/javascript src=/js/navbar.js></script>
 <script type=text/javascript src=/js/plyr.js></script>
 <script type=text/javascript src=/js/main.js></script>
+<script type=text/javascript src=/js/clipboard.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
 <script src=/js/imagesloaded.pkgd.min.js></script>
 <script src=/js/note.js></script>

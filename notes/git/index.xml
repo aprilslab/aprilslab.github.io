@@ -3,25 +3,26 @@ $ git clone {https://gitlab.com/johndoe/example.git} 원격 저장소 복제(Clo
 $ git clone {git@gitlab.com:johndoe/example.git} Git Config 유저 이름과 이메일 설정하기
 $ git config --global user.name &amp;#34;John Doe&amp;#34; $ git config --global user.email &amp;#34;johndoe@email.com&amp;#34; merge &amp;ndash;no-ff가 기본으로 동작하도록 설정
 $ git config --global merge.ff false pager 끄기
-$ git config --global pager.branch false $ git config --global pager.</description></item><item><title>Git branch</title><link>https://aprilslab.github.io/notes/git/branch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/branch/</guid><description>Create Branch 새로운 브렌치를 생성
+$ git config --global pager.branch false $ git config --global pager.tag false Git Repository Git에 존재하는 폴더 올리기</description></item><item><title>Git branch</title><link>https://aprilslab.github.io/notes/git/branch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/branch/</guid><description> Create Branch 새로운 브렌치를 생성
 $ git branch {new branch} 새로운 브렌치를 생성한 뒤 해당 브렌치로 이동
 $ git checkout -b {new branch} Update Branch 로컬 브렌치 이름 변경
 $ git branch -m {변경전 이름} {바꿀 이름} Default branch 변경
 $ git config --global init.defaultBranch {branch} Delete Branch 로컬 브렌치 삭제
-$ git branch -D {branch} 지운 로컬 브렌치 되살리기</description></item><item><title>Git Commit</title><link>https://aprilslab.github.io/notes/git/commit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/commit/</guid><description>Git Commit 변경사항 저장 후 commit하기
+$ git branch -D {branch} 지운 로컬 브렌치 되살리기
+$ git reflog --no-abbrev $ git checkout -b {branch_name} {브렌치 지우기 전 commit}</description></item><item><title>Git Commit</title><link>https://aprilslab.github.io/notes/git/commit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/commit/</guid><description>Git Commit 변경사항 저장 후 commit하기
 # 변경사항 모두 저장 $ git add . # git commit $ git commit -m &amp;#34;commit message&amp;#34; Commit History commit history 조회 (삭제된 브렌치의 커밋도 조회 가능)
 $ git reflog 특정 commit 시점으로 이동하기
 $ git checkout {commit} 현재로 돌아오기
 $ git checkout - Update Commit 바로 직전 commit에 변경사항 추가하기
-# 변경사항 모두 저장 $ git add .</description></item><item><title>Git Merge</title><link>https://aprilslab.github.io/notes/git/merge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/merge/</guid><description>Merge Branch B 브랜치를 A 브랜치로 병합
+# 변경사항 모두 저장 $ git add . # git commit $ git commit --amend 과거의 특정 commit 수정 (merge상태 유지)</description></item><item><title>Git Merge</title><link>https://aprilslab.github.io/notes/git/merge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/merge/</guid><description> Merge Branch B 브랜치를 A 브랜치로 병합
 $ git checkout A $ git merge B Merge Conflict Conflict 난 파일 수정후 아래의 명령어 입력
 # 수정한 파일만 추가 $ git add {수정한 파일} # 전체 파일추가 $ git add . # merge 계속 진행하기 $ git merge --continue Merge Abort merge를 진행하던 도중 취소하려고 할 때 사용
-$ git merge --abort</description></item><item><title>Git Remote</title><link>https://aprilslab.github.io/notes/git/remote/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/remote/</guid><description>Remote Setting 현재 remote repository 확인 명령어
+$ git merge --abort</description></item><item><title>Git Remote</title><link>https://aprilslab.github.io/notes/git/remote/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/remote/</guid><description> Remote Setting 현재 remote repository 확인 명령어
 $ git remote -v git remote 변경 명령어
 $ git remote set-url origin {https://github.com/johndoe/example.git} git remote 동기화 명령어
 $ git remote update origin --prune Remote Branch Remote branch 리스트 확인하기
 $ git branch -r Remote branch가져오기
-$ git checkout -t origin/{branch_name}</description></item><item><title>Git Rebase</title><link>https://aprilslab.github.io/notes/git/rebase/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/rebase/</guid><description>Git Rebase git rebase 명령어
+$ git checkout -t origin/{branch_name}</description></item><item><title>Git Rebase</title><link>https://aprilslab.github.io/notes/git/rebase/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/rebase/</guid><description> Git Rebase git rebase 명령어
 $ git rebase -i Base branch 변경
 $ git rebase --onto {새로운_branch_or_commit} {변경전_branch_or_commit} 과거의 특정 commit 수정 (merge상태 유지)
 $ git rebase -i --rebase-merges {고치려는 commit 전 commit}</description></item></channel></rss>
