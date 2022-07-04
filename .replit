@@ -1,5 +1,5 @@
 # run = "cowsay Configure me!"
-run = "hugo server --buildDrafts --buildFuture --bind 0.0.0.0 --port 443 --baseURL https://aprilslabgithubio.yeongjukim2.repl.co"
+run = "sh sh/init.sh"
 
 onBoot="source .bashrc"
 
