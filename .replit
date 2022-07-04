@@ -1,7 +1,7 @@
 # run = "cowsay Configure me!"
 run = "sh sh/init.sh"
 
-onBoot="source .bashrc"
+# onBoot="source .bashrc"
 
 [nix]
 channel = "stable-21_11"
