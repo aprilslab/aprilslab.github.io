@@ -2,7 +2,7 @@
 section:
   name: Experiences
   id: experiences
-  enable: false
+  enable: true
   weight: 3
   showOnNavbar: true
   # Can optionally hide the title in sections
@@ -11,54 +11,97 @@ section:
 # Your experiences
 experiences:
 - company:
-    name: Example Co.
-    url: "https://www.example.com"
-    location: Dhaka Branch
+    name: Foodtech Co.,
+    url: "http://www.foodtechkorea.com/"
+    location: Seoul
     # company overview
-    overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
+    overview: 배달의 민족 자회사. 주문 채널사와 배달 대행사를 연동한 중개 플랫폼 회사
   positions:
-  - designation: Senior Software Engineer
-    start: Nov 2019
+  - designation: iOS 앱 개발 업무 담당
+    start: June 2021
     # don't provide end date if you are currently working there. It will be replaced by "Present"
-    # end: Dec 2020
+    # end: Dec 2021
+    # give some points about what was your responsibilities at the company.
+    responsibiliies:
+    - 앱 개발 및 유지보수 업무 담당
+
+  - designation: bhc 앱 개발
+    start: September 2021
+    # don't provide end date if you are currently working there. It will be replaced by "Present"
+    end: December 2021
     # give some points about what was your responsibilities at the company.
     responsibilities:
-    - Design and develop XYZ tool for ABC task
-    - Design, develop and manage disaster recovery tool [Xtool](https://www.example.com) that backup Kubernetes volumes, databases, and cluster's resource definition.
-    - Lead backend team.
+    - bhc 치킨 주문앱 개발
+    - Swift, SwiftUI, Alamofire, Combine
 
-  - designation: Junior Software Engineer
-    start: Nov 2017
-    end: Oct 2019
+  - designation: 주문접수앱 개발
+    start: June 2021
+    end: July 2021
     responsibilities:
-    - Implement and test xyz feature for abc tool.
-    - Support client for abc tool.
-    - Learn k,d,w technology for xyz.
+    - 배달의 민족, 요기요 등 사장님용 주문 접수앱 개발
+    - Swift, SwiftUI, Alamofire, Combine
 
 - company:
-    name: PreExample Co.
-    url: "https://www.example.com"
-    location: Nowhere
-    overview: PreExample Co. is a gateway company to enter into Example co. So, nothing special here.
+    name: AIBrain Inc.
+    url: "https://aibrain.com/"
+    location: Seoul
+    overview: 인공지능 솔루션 회사
   positions:
-  - designation: Software Engineer
-    start: March 2016
-    end: May 2017
+  - designation: 공동인증서 관련 유지 보수 및 라이브러리 래핑 
+    start: March 2021
+    end: May 2021
     responsibilities:
-    - Write lots of example codes.
-    - Read lots of examples.
-    - See lots of example videos.
+    - 공동인증서 Framework 라이브러리 래핑
+    - 공동인증서 사용 예시 작성
+    - ObjectiveC, StoryBoard
 
-- company:
-    name: Intern Counting Company (ICC).
-    url: "https://www.example.com"
-    location: Intern Land
-    overview: Intern counting Company (ICC) is responsible for counting worldwide intern Engineers.
-  positions:
-  - designation: Intern
-    start: Jun 2015
-    end: Jan 2016
+  - designation: 영수증 OCR 연구
+    start: April 2021
+    end: May 2021
     responsibilities:
-    - Count lost of interns.
-    - Count more interns.
-    - Count me as an intern.
+    - OpenCV를 활용한 영수증 OCR 기능 개발
+    - Python, OpenCV
+
+  - designation: AR기반 모바일로봇 자율주행 기능 연구
+    start: December 2020
+    end: January 2021
+    responsibilities:
+    - 싱글 카메라와 IMU 센서를 활용한 자율주행 기능 개발
+    - ARKit, Swift, StoryBoard
+
+  - designation: KISA 웹선도 사업 정부과제 (비대면 온라인 교육 본인확인)
+    start: June 2020
+    end: December 2020
+    responsibilities:
+    - 비대면 온라인 교육 출석체크를 위한 얼굴인식 모델 개발
+    - Python, Arcface, Tensorflow, OpenCV
+
+  - designation: 치매 노인을 위한 동영상 전용 채팅 앱
+    start: May 2019
+    end: October 2019
+    responsibilities:
+    - 동영상 채팅 앱 개발
+    - Swift, StoryBoard, AVFoundation
+
+  - designation: 자연어처리 엔진 기능 추가 개발
+    start: February 2017
+    end: January 2018
+    responsibilities:
+    - 워드넷을 이용한 동의어 처리
+    - WordNet, Java
+
+  - designation: V-REP 시뮬레이터 연동 및 안드로이드 OPRoS 엔진 개발
+    start: January 2016
+    end: January 2017
+    responsibilities:
+    - V-REP시뮬레이터 연동 안드로이드 컴포넌트 개발
+    - JNI를 이용한 오프로스 엔진 및 안드로이드 런타임 연동
+    - Android, Java, Eclipse
+
+  - designation: 모바일 로봇 전용 프로그래밍 앱 개발
+    start: June 2015.06
+    end: January 2016
+    responsibilities:
+    - 이동, 소리 감지, 물체 인식등의 이벤트에 따른 로봇 프로그래밍 앱 개발
+    - Swift, Storyboard, Android, Java, JNI, OPRoS
+
