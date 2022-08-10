@@ -7,7 +7,7 @@ math: true
 menu:
   sidebar:
     name: "[iOS] iOS 버전별 점유율 확인"
-    identifier: ios-00
+    identifier: ios-000
     parent: ios
     weight: 10
 tags: ["iOS 점유율", "iOS 타켓 OS 정하기"]
