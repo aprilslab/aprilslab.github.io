@@ -1,12 +1,12 @@
 ---
-title: "[SwiftUI] WebView 구현하기 1"
-date: 2023-11-23T05:41:49Z
+title: "[SwiftUI] WebView 구현하기"
+date: 2023-11-24T05:41:49Z
 draft: true
 mermaid: true
 math: true
 menu:
   sidebar:
-    name: "[SwiftUI] WebView 구현하기 1"
+    name: "[SwiftUI] WebView 구현하기"
     identifier: ios-001
     parent: ios
     weight: 20
@@ -45,14 +45,14 @@ struct WebView: UIViewRepresentable {
 
     var url: URL
     
-    //뷰를 생성하고 초기 상태를 구성합니다.
+    //뷰를 생성하고 초기 상태를 구성한다
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView(frame: CGRect.zero)
         webView.load(URLRequest(url: self.url))
         return webView
     }
     
-    //SwiftUI의 새로운 정보로 뷰의 상태를 업데이트합니다.
+    //SwiftUI의 새로운 정보로 뷰의 상태를 업데이트한다
     func updateUIView(_ uiView: WKWebView, context: Context) {
         
     }
@@ -84,7 +84,6 @@ struct WebView: UIViewRepresentable {
     
     var url: URL
     
-    //뷰를 생성하고 초기 상태를 구성합니다.
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView(frame: CGRect.zero)
         webView.uiDelegate = context.coordinator
@@ -92,12 +91,11 @@ struct WebView: UIViewRepresentable {
         return webView
     }
     
-    //SwiftUI의 새로운 정보로 뷰의 상태를 업데이트합니다.
     func updateUIView(_ uiView: WKWebView, context: Context) {
         
     }
 
-    //뷰에서 SwiftUI 인터페이스의 다른 부분으로 변경 사항을 전달하는 데 사용하는 사용자 정의 인스턴스를 만듭니다.
+    //뷰에서 SwiftUI 인터페이스의 다른 부분으로 변경 사항을 전달하는 데 사용하는 사용자 정의 인스턴스를 만들어준다
     func makeCoordinator() -> Coordinator {
         return Coordinator()
     }
@@ -131,17 +129,155 @@ Coordinator클래스를 정의 후 `NSObject, WKUIDelegate`를 상속받고 `mak
 runJavaScriptAlertPanelWithMessage 변수를 가지고 있는 webView함수의 completionHandler를 호출하는 경우 
 웹뷰에서는 확인 버튼을 누른 것으로 인식하고
 runJavaScriptConfirmPanelWithMessage 변수를 가지고 있는 webView함수의 completionHandler를 호출하는 경우
-웹뷰에서는 completionHandler에 입력된 변수에 따라 확인/취소 버튼을 누른것으로 인식합니다.
-
-위에 있는 예시코드를 그대로 사용하는 경우 Alert창이나 Confirm창이 뜨자마자 유저가 확인버튼이나 확인/취소 버튼을 누른 것으로 인식하기 때문에
+웹뷰에서는 completionHandler에 입력된 변수에 따라 확인/취소 버튼을 누른것으로 인식합니다. 
+그렇기 때문에 위에 있는 예시코드를 그대로 사용하는 경우 `Alert창이나 Confirm창이 뜨자마자 유저가 확인버튼이나 확인/취소 버튼을 누른 것으로 인식`하기 때문에 `ViewModel 구현하기`에서 SwiftUI에서 버튼을 누른경우 응답을 하는 동작으로 바꿔보겠습니다.`
 
 
 #### # 외부 링크 연결 (전화결기, 결제하기 등)
+전화번호를 연결하거나 메일을 보내거나 결제를 위해 다른 앱을 실행하는 등 http와 https로 시작하지 않는 custom url scheme의 경우 해당 url을 open 해주면 전화를 하거나 메일을 보내거나 새로운 앱을 여는 등의 동작을 할 수 있습니다.\
+Coordinator에 WKNavigationDelegate를 상속 받고 WKWebView의 navigation delegate에 Coordinator를 넣어줍니다.
 ```swift
+import SwiftUI
+import UIKit
+import Combine
+import WebKit
+
+struct WebView: UIViewRepresentable {
+    
+    var url: URL
+    
+    func makeUIView(context: Context) -> WKWebView {
+        let webView = WKWebView(frame: CGRect.zero)
+        // coordinator에  WKNavigationDelegate를 상속받고 웹뷰의 navigationDelegate에 넣어준다
+        webView.navigationDelegate = context.coordinator
+        webView.uiDelegate = context.coordinator
+        webView.load(URLRequest(url: self.url))
+        return webView
+    }
+    ...생략...
+}
+
+extension WebView.Coordinator: WKNavigationDelegate {
+    public func webView(_ webView: WKWebView,
+                 decidePolicyFor navigationAction: WKNavigationAction,
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        
+        // 외부 링크가 아니고 tel, mailto로 시작하는 링크나 특정 앱을 실행하는 url scheme일 경우 링크를 열어준다
+        let scheme = navigationAction.request.url?.scheme
+        let schemes = ["http", "https", "about"]
+        if let scheme = scheme?.lowercased(), !schemes.contains(scheme) {
+            UIApplication.shared.open(navigationAction.request.url!, options: [:], completionHandler: nil)
+            decisionHandler(.cancel)
+            
+        } else {
+            decisionHandler(.allow)
+        }
+    }
+}
 ```
 #### # Javascript bridge 설정하기
+웹뷰에서 네이티브쪽 기능을 호출할 때 Javascript bridge를 이용합니다.
+`웹뷰 → 네이티브` 방향 통신입니다.
 ```swift
+import SwiftUI
+import UIKit
+import Combine
+import WebKit
+
+struct WebView: UIViewRepresentable {
+    
+    var url: URL
+
+    func makeUIView(context: Context) -> WKWebView {
+        // java script bridge를 허용하는 configuration을 생성한 뒤 webview생성할 때 해당 configuration을 넣어준다
+        let config = self.getConfig()
+        let webView = WKWebView(frame: CGRect.zero, configuration: config)
+        webView.navigationDelegate = context.coordinator
+        webView.uiDelegate = context.coordinator
+        webView.load(URLRequest(url: self.url))
+        return webView
+    }
+
+    func getConfig() -> WKWebViewConfiguration {
+        let configuration = WKWebViewConfiguration()
+        let preferences = WKPreferences()
+        
+        // iOS 14 이상일 경우
+        if #available(iOS 14.0, *) {
+            let pagePreferences = WKWebpagePreferences()
+            // java script 허용
+            pagePreferences.allowsContentJavaScript = true
+            configuration.defaultWebpagePreferences = pagePreferences
+        } 
+        // iOS 13 이하일 경우
+        else {
+            // java script 허용
+            preferences.javaScriptEnabled = true
+        }
+        
+        configuration.preferences = preferences
+        configuration.userContentController.add(self.makeCoordinator(), name: "yourBridgeName")
+        return configuration
+    }
+    ...생략...
+}
+
+extension WebView.Coordinator: WKScriptMessageHandler {
+    public func userContentController(_ userContentController: WKUserContentController,
+                                 didReceive message: WKScriptMessage) {
+        
+        if message.name == "yourBridgeName" {
+            //받은 데이터를 출력해본다
+            print(message.body)
+            // TODO: Your Action
+        }
+    }
+}
 ```
+
+그렇다면 `네이티브 → 웹뷰` 방향으로 javascript 함수들을 호출하고 싶을 때는 어떻게 해야할까요?
+```swift
+import SwiftUI
+import UIKit
+import Combine
+import WebKit
+
+struct WebView: UIViewRepresentable {
+
+    ...생략...
+    class Coordinator: NSObject, WKUIDelegate {
+        // 첫 생성시 말고도 다른 곳에서도 접근 할 수 있도록 WebView변수를 전역으로 선언한다
+        var webView: WKWebView? = nil
+        
+        ...생략...
+        
+        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+            //웹 뷰 로딩이 끝나면 webView변수를 할당한다
+            self.webView = webView
+        }
+
+        // java script를 실행한다. 예: alert('hello world!');
+        func executeJavaScript(_ script: String) {
+            guard let webView = self.webView else { 
+                // 아직 웹뷰가 로딩되기 전이면 스크립트를 실행하지 않고 리턴한다
+                return
+            }
+
+            webView.evaluateJavaScript(script) { result, error in
+                if let error = error {
+                    print("script error: \(error)")
+                }
+                
+                print("script result: \(result ?? "")")
+            }
+        }
+    }
+}
+
+```
+WKWebView 내부에 있는 evaluateJavaScript 함수를 쓰면 JavaScript를 실행할 수 있습니다.\
+그렇다면 이제 SwiftUI에서 자유롭게 WebView에서 받은 변수에 따른 동작을 정의하거나 WebView를 호출하여 JavaScript를 실행하기 위해서 ViewModel을 생성해주도록 합시다.
+
 ---
 ## ViewModel 구현하기
 ```swift
