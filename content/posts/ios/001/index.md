@@ -1,6 +1,6 @@
 ---
 title: "[SwiftUI] WebView 구현하기"
-date: 2023-11-24T05:41:49Z
+date: 2023-11-25T05:41:49Z
 draft: true
 mermaid: true
 math: true
@@ -38,7 +38,6 @@ WebView를 생성하고 UIViewRepresentable를 상속받고나서 기본 소스�
 ```swift
 import SwiftUI
 import UIKit
-import Combine
 import WebKit
 
 struct WebView: UIViewRepresentable {
@@ -68,7 +67,7 @@ struct ContentView: View {
     }
 }
 ```
-이제부터 # 붙은 항목을 필요한대로 찾은 후 소스코드에 붙여서 사용하시면 됩니다.
+이제부터 좀 더 User Interactive한 WebView를 구현하기 위한 항목을 하나씩 추가해보도록 하겠습니다.
 
 #### # Alert, Confirm 창 띄우기
 웹을 사용하다보면 사용자에게 정보를 알려주거나, 확인/취소 등의 피드백을 받기 위해 alert, comfirm 창을 활용해야할 때가 많습니다.
@@ -77,7 +76,6 @@ struct ContentView: View {
 ```swift
 import SwiftUI
 import UIKit
-import Combine
 import WebKit
 
 struct WebView: UIViewRepresentable {
@@ -130,7 +128,7 @@ runJavaScriptAlertPanelWithMessage 변수를 가지고 있는 webView함수의 c
 웹뷰에서는 확인 버튼을 누른 것으로 인식하고
 runJavaScriptConfirmPanelWithMessage 변수를 가지고 있는 webView함수의 completionHandler를 호출하는 경우
 웹뷰에서는 completionHandler에 입력된 변수에 따라 확인/취소 버튼을 누른것으로 인식합니다. 
-그렇기 때문에 위에 있는 예시코드를 그대로 사용하는 경우 `Alert창이나 Confirm창이 뜨자마자 유저가 확인버튼이나 확인/취소 버튼을 누른 것으로 인식`하기 때문에 `ViewModel 구현하기`에서 SwiftUI에서 버튼을 누른경우 응답을 하는 동작으로 바꿔보겠습니다.`
+그렇기 때문에 위에 있는 예시코드를 그대로 사용하는 경우 `Alert창이나 Confirm창이 뜨자마자 유저가 확인버튼이나 확인/취소 버튼을 누른 것으로 인식`하기 때문에 `ViewModel 구현하기`에서 SwiftUI에서 버튼을 누른경우 응답을 하는 동작으로 바꿔보겠습니다.
 
 
 #### # 외부 링크 연결 (전화결기, 결제하기 등)
@@ -139,7 +137,6 @@ Coordinator에 WKNavigationDelegate를 상속 받고 WKWebView의 navigation del
 ```swift
 import SwiftUI
 import UIKit
-import Combine
 import WebKit
 
 struct WebView: UIViewRepresentable {
@@ -181,7 +178,6 @@ extension WebView.Coordinator: WKNavigationDelegate {
 ```swift
 import SwiftUI
 import UIKit
-import Combine
 import WebKit
 
 struct WebView: UIViewRepresentable {
@@ -239,7 +235,6 @@ extension WebView.Coordinator: WKScriptMessageHandler {
 ```swift
 import SwiftUI
 import UIKit
-import Combine
 import WebKit
 
 struct WebView: UIViewRepresentable {
@@ -280,6 +275,8 @@ WKWebView 내부에 있는 evaluateJavaScript 함수를 쓰면 JavaScript를 실
 
 ---
 ## ViewModel 구현하기
+ViewModel을 구현하는데는 ObservableObject와 Combine을 활요해 보도록 하겠습니다.
+ObservableObject에서 Combine을 사용하여 Web 페이지의 변화를 감지해서 @Published 태그가 붙어 있는 변수에 할당해줘서 SwiftUI에서 변화를 감지할 수 있도록 구현해보겠습니다.
 ```swift
 ```
 ---
@@ -291,4 +288,3 @@ WKWebView 내부에 있는 evaluateJavaScript 함수를 쓰면 JavaScript를 실
 #### 참고 사이트
 * [https://velog.io/@altmshfkgudtjr/SwiftUI에서-WebView를-사용해보자](https://velog.io/@altmshfkgudtjr/SwiftUI%EC%97%90%EC%84%9C-WebView%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90)
 * [https://developer.apple.com/documentation/swiftui/uiviewrepresentable](https://developer.apple.com/documentation/swiftui/uiviewrepresentable)
-* 
