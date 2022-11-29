@@ -33,7 +33,7 @@ categories: ["SwiftUI", "Layout"]
 > 3. 겹쳐서 쌓기 (ZStack)
 > 이 3가지만 알아도 뷰를 잘 구성할 수 있습니다.
 
-{{< img src="view_stack.png" max-width=800px align="center" title="뷰 쌓기" >}}
+{{< img src="view_stack.png" width=80% align="center" title="뷰 쌓기" >}}
 
 이미지를 보면 이미지와 텍스트뷰 부분이 겹쳐 있는 것을 볼 수 있습니다. 이 부분은 이미지를 겹치는 ZStack을 이용한 것입니다.\
 그리고 텍스트들은 사람의 이름인 `Rachael Chiseck`와 직위인 `Chief Executive Officer`가 상하로 배치된것을 볼 수 있는데 이것은 뷰를 세로로 쌓는 VStack을 이용한것입니다.\
