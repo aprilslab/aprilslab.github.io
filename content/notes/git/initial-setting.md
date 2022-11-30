@@ -68,4 +68,13 @@ $ git push -u origin --tags
 {{< note title="Git Ignore" >}}
 .gitignore 파일 자동 생성 사이트: 
 [gitignore.io](https://www.toptal.com/developers/gitignore)
+---
+.gitignore를 적용하기 전에 Git에 올린 필요없는 파일 및 폴더 git cache에서 삭제하기
+```bash
+$ cd {existing_folder}
+$ git rm -r --cached . # dot이 있음을 잊지말자. 캐시된 모든 것을 지우는 것을 의미한다.
+$ git add . # 다시 모든 것을 추가해주면 .gitignore에 있는 제외 규칙에 있는 폴더 및 파일을 제외하고 다시 추가해준다.
+$ git commit -m "apply .gitignore & clear cache"
+$ git push
+```
 {{< /note >}}
