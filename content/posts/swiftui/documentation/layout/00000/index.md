@@ -1,5 +1,6 @@
 ---
 title: "[SwiftUI] Layout 선택하기"
+hero: "heroes/swiftui.png"
 date: 2022-11-28T07:55:48Z
 draft: false
 mermaid: true
@@ -7,8 +8,8 @@ math: true
 menu:
   sidebar:
     name: Layout 선택하기
-    identifier: swiftui-docs-layout-00000
-    parent: swiftui-docs-layout
+    identifier: swiftui-layout-00000
+    parent: swiftui-layout
     weight: 10
 tags: ["SwiftUI", "Layout"]
 categories: ["SwiftUI", "Layout"]
