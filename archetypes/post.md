@@ -1,5 +1,6 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
+url: replace_url
 date: {{ .Date }}
 draft: false
 mermaid: true
