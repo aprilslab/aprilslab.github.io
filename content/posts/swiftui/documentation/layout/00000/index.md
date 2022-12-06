@@ -1,6 +1,7 @@
 ---
 title: "[SwiftUI] Layout 선택하기"
 hero: "heroes/swiftui.png"
+url: "swiftui/select_layout"
 date: 2022-11-28T07:55:48Z
 draft: false
 mermaid: true
