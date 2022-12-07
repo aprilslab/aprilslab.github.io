@@ -1,5 +1,6 @@
 ---
 title: "[iOS] iOS 버전별 점유율 확인"
+url: posts/ios/000/
 date: 2022-06-02T08:43:39+09:00
 draft: false
 mermaid: true

@@ -1,5 +1,6 @@
 ---
 title: "[Colab] Colab에서 Conda 사용하기"
+url: python/how_to_install_conda_in_colab
 date: 2023-04-08T07:32:15Z
 draft: false
 mermaid: true
