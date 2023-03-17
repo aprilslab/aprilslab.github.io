@@ -42,8 +42,8 @@ viewModel의 데이터를 바인딩 할 수 있는데 <code>android:text="@={vie
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#a6e22e>@JvmStatic</span>
 </span></span><span style=display:flex><span>        <span style=color:#a6e22e>@BindingAdapter</span>(<span style=color:#e6db74>&#34;android:beforeTextChanged&#34;</span>, <span style=color:#e6db74>&#34;android:onTextChanged&#34;</span>, <span style=color:#e6db74>&#34;android:afterTextChanged&#34;</span>, <span style=color:#e6db74>&#34;android:textAttrChanged&#34;</span>, requireAll = <span style=color:#66d9ef>false</span>)
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>setTextWatcher</span>(customEditText: CustomUnderlineEditText, before: TextViewBindingAdapter.BeforeTextChanged?,
-</span></span><span style=display:flex><span>                           on: TextViewBindingAdapter.OnTextChanged?, after: TextViewBindingAdapter.AfterTextChanged?,
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>setTextWatcher</span>(customEditText: CustomUnderlineEditText, before: <span style=color:#a6e22e>TextViewBindingAdapter</span>.BeforeTextChanged?,
+</span></span><span style=display:flex><span>                           on: <span style=color:#a6e22e>TextViewBindingAdapter</span>.OnTextChanged?, after: <span style=color:#a6e22e>TextViewBindingAdapter</span>.AfterTextChanged?,
 </span></span><span style=display:flex><span>                           textAttrChanged: InverseBindingListener?) {
 </span></span><span style=display:flex><span>            <span style=color:#66d9ef>val</span> newValue = <span style=color:#66d9ef>object</span>: TextWatcher {
 </span></span><span style=display:flex><span>                <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>beforeTextChanged</span>(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -59,7 +59,7 @@ viewModel의 데이터를 바인딩 할 수 있는데 <code>android:text="@={vie
 </span></span><span style=display:flex><span>                }
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>val</span> oldValue = ListenerUtil.trackListener(customEditText, newValue, R.id.textWatcher)
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>val</span> oldValue = <span style=color:#a6e22e>ListenerUtil</span>.trackListener(customEditText, newValue, <span style=color:#a6e22e>R</span>.id.textWatcher)
 </span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (oldValue <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>) {
 </span></span><span style=display:flex><span>                customEditText.editText.removeTextChangedListener(oldValue)
 </span></span><span style=display:flex><span>            }
@@ -95,56 +95,56 @@ viewModel의 데이터를 바인딩 할 수 있는데 <code>android:text="@={vie
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>init</span>(context: Context) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> view = LayoutInflater.from(context).inflate(R.layout.custom_edittext, <span style=color:#66d9ef>this</span>, <span style=color:#66d9ef>false</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> view = <span style=color:#a6e22e>LayoutInflater</span>.from(context).inflate(<span style=color:#a6e22e>R</span>.layout.custom_edittext, <span style=color:#66d9ef>this</span>, <span style=color:#66d9ef>false</span>)
 </span></span><span style=display:flex><span>        addView(view)
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        editText = findViewById(R.id.changedColorEdtText)
-</span></span><span style=display:flex><span>        underLine = findViewById(R.id.underlineView)
+</span></span><span style=display:flex><span>        editText = findViewById(<span style=color:#a6e22e>R</span>.id.changedColorEdtText)
+</span></span><span style=display:flex><span>        underLine = findViewById(<span style=color:#a6e22e>R</span>.id.underlineView)
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        editText.setOnFocusChangeListener { _, hasFocus <span style=color:#f92672>-&gt;</span>
 </span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (hasFocus) {
-</span></span><span style=display:flex><span>                underLine.setBackgroundResource(R.color.black_bhc)
+</span></span><span style=display:flex><span>                underLine.setBackgroundResource(<span style=color:#a6e22e>R</span>.color.black_bhc)
 </span></span><span style=display:flex><span>            } <span style=color:#66d9ef>else</span> {
-</span></span><span style=display:flex><span>                underLine.setBackgroundResource(R.color.gray_bhc_background_img)
+</span></span><span style=display:flex><span>                underLine.setBackgroundResource(<span style=color:#a6e22e>R</span>.color.gray_bhc_background_img)
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getAttrs</span>(attrs: AttributeSet?) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> typedArray = context.obtainStyledAttributes(attrs, R.styleable.customEditText)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> typedArray = context.obtainStyledAttributes(attrs, <span style=color:#a6e22e>R</span>.styleable.customEditText)
 </span></span><span style=display:flex><span>        setTypedArray(typedArray)
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getAttrs</span>(attrs: AttributeSet?, defStyleAttr: Int) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> typedArray = context.obtainStyledAttributes(attrs, R.styleable.customEditText, defStyleAttr, <span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> typedArray = context.obtainStyledAttributes(attrs, <span style=color:#a6e22e>R</span>.styleable.customEditText, defStyleAttr, <span style=color:#ae81ff>0</span>)
 </span></span><span style=display:flex><span>        setTypedArray(typedArray)
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>setTypedArray</span>(typedArray: TypedArray) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> hintResID: String? = typedArray.getString(R.styleable.customEditText_android_hint)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> hintResID: String? = typedArray.getString(<span style=color:#a6e22e>R</span>.styleable.customEditText_android_hint)
 </span></span><span style=display:flex><span>        editText.hint = hintResID
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> focusable: Boolean =
-</span></span><span style=display:flex><span>            typedArray.getBoolean(R.styleable.customEditText_android_focusable, <span style=color:#66d9ef>true</span>)
+</span></span><span style=display:flex><span>            typedArray.getBoolean(<span style=color:#a6e22e>R</span>.styleable.customEditText_android_focusable, <span style=color:#66d9ef>true</span>)
 </span></span><span style=display:flex><span>        editText.isFocusable = focusable
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> focusableInTouchMode: Boolean = typedArray.getBoolean(
-</span></span><span style=display:flex><span>            R.styleable.customEditText_android_focusableInTouchMode,
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>R</span>.styleable.customEditText_android_focusableInTouchMode,
 </span></span><span style=display:flex><span>            <span style=color:#66d9ef>true</span>
 </span></span><span style=display:flex><span>        )
 </span></span><span style=display:flex><span>        editText.isFocusableInTouchMode = focusableInTouchMode
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> imeOptions: Int = typedArray.getInt(
-</span></span><span style=display:flex><span>            R.styleable.customEditText_android_imeOptions,
-</span></span><span style=display:flex><span>            EditorInfo.IME_ACTION_DONE
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>R</span>.styleable.customEditText_android_imeOptions,
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>EditorInfo</span>.IME_ACTION_DONE
 </span></span><span style=display:flex><span>        )
 </span></span><span style=display:flex><span>        editText.imeOptions = imeOptions
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> inputType: Int = typedArray.getInt(
-</span></span><span style=display:flex><span>            R.styleable.customEditText_android_inputType,
-</span></span><span style=display:flex><span>            EditorInfo.TYPE_NULL
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>R</span>.styleable.customEditText_android_inputType,
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>EditorInfo</span>.TYPE_NULL
 </span></span><span style=display:flex><span>        )
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (inputType <span style=color:#f92672>!=</span> EditorInfo.TYPE_NULL) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (inputType <span style=color:#f92672>!=</span> <span style=color:#a6e22e>EditorInfo</span>.TYPE_NULL) {
 </span></span><span style=display:flex><span>            editText.inputType = inputType
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>
@@ -178,7 +178,7 @@ viewModel의 데이터를 바인딩 할 수 있는데 <code>android:text="@={vie
 </span></span><span style=display:flex><span>        editText.clearFocus()
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>setOnEditorActionListener</span>(listener: TextView.OnEditorActionListener) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>setOnEditorActionListener</span>(listener: <span style=color:#a6e22e>TextView</span>.OnEditorActionListener) {
 </span></span><span style=display:flex><span>        editText.setOnEditorActionListener(listener)
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>}
