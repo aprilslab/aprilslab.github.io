@@ -52,4 +52,9 @@ $ git branch -D {branch}
 $ git reflog --no-abbrev
 $ git checkout -b {branch_name} {브렌치 지우기 전 commit}
 ```
+---
+서브 디렉토리에 있는 모든 브렌치 삭제
+```bash
+$ git branch -D $(git branch -a | grep {서브 디렉토리 패턴} | awk '{print $1}')
+```
 {{< /note >}}
