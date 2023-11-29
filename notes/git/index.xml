@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on April's DevLog</title><link>https://aprilslab.github.io/notes/git/</link><description>Recent content in Git on April's DevLog</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="https://aprilslab.github.io/notes/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Git Settings</title><link>https://aprilslab.github.io/notes/git/initial-setting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/initial-setting/</guid><description>Git Clone 원격 저장소 복제(Clone)하기 - HTTP
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on April's DevLog</title><link>https://aprilslab.github.io/notes/git/</link><description>Recent content in Git on April's DevLog</description><generator>Hugo -- gohugo.io</generator><language>ko</language><atom:link href="https://aprilslab.github.io/notes/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Git Settings</title><link>https://aprilslab.github.io/notes/git/initial-setting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/initial-setting/</guid><description>Git Clone 원격 저장소 복제(Clone)하기 - HTTP
 $ git clone {https://gitlab.com/johndoe/example.git} 원격 저장소 복제(Clone)하기 - SSH
 $ git clone {git@gitlab.com:johndoe/example.git} Git Config 유저 이름과 이메일 설정하기
 $ git config --global user.name &amp;#34;John Doe&amp;#34; $ git config --global user.email &amp;#34;johndoe@email.com&amp;#34; merge &amp;ndash;no-ff가 기본으로 동작하도록 설정
 $ git config --global merge.ff false pager 끄기
-$ git config --global pager.branch false $ git config --global pager.tag false Git Repository Git에 존재하는 폴더 올리기</description></item><item><title>Git branch</title><link>https://aprilslab.github.io/notes/git/branch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/branch/</guid><description> Create Branch 새로운 브렌치를 생성
+$ git config --global pager.branch false $ git config --global pager.tag false Git Repository Git에 존재하는 폴더 올리기</description></item><item><title>Git branch</title><link>https://aprilslab.github.io/notes/git/branch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/branch/</guid><description>Create Branch 새로운 브렌치를 생성
 $ git branch {new branch} 새로운 브렌치를 생성한 뒤 해당 브렌치로 이동
 $ git checkout -b {new branch} Update Branch 로컬 브렌치 이름 변경
 $ git branch -m {변경전 이름} {바꿀 이름} Default branch 변경
 $ git config --global init.defaultBranch {branch} Delete Branch 로컬 브렌치 삭제
 $ git branch -D {branch} 지운 로컬 브렌치 되살리기
-$ git reflog --no-abbrev $ git checkout -b {branch_name} {브렌치 지우기 전 commit}</description></item><item><title>Git Commit</title><link>https://aprilslab.github.io/notes/git/commit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/commit/</guid><description>Git Commit 변경사항 저장 후 commit하기
+$ git reflog --no-abbrev $ git checkout -b {branch_name} {브렌치 지우기 전 commit} 서브 디렉토리에 있는 모든 브렌치 삭제</description></item><item><title>Git Commit</title><link>https://aprilslab.github.io/notes/git/commit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aprilslab.github.io/notes/git/commit/</guid><description>Git Commit 변경사항 저장 후 commit하기
 # 변경사항 모두 저장 $ git add . # git commit $ git commit -m &amp;#34;commit message&amp;#34; Commit History commit history 조회 (삭제된 브렌치의 커밋도 조회 가능)
 $ git reflog 특정 commit 시점으로 이동하기
 $ git checkout {commit} 현재로 돌아오기
